@@ -3,10 +3,11 @@
 angular.module('contactApp').controller('add-contact-controller', function ($scope, $state, contactsFactory) {
 
     $scope.contact = {
-        Contact_Name: '',
-        Contact_Email: '',
-        Contact_Phone: '',
-        Contact_Mailing_Address: ''
+        contact_name: '',
+        contact_email: '',
+        contact_phone: '',
+        contact_mailing_address: '',
+        activity: ''
     };
 
     $scope.disabled = false;

@@ -16,24 +16,6 @@ var config = {
 // use a connection pool
 var pool = new pg.Pool(config);
 
-// create the database table
-module.exports.create = function(req, res) {
-    pool.connect(function(err, client, done) {
-
-        client.query('CREATE TABLE Contacts(ID SERIAL PRIMARY KEY, Contact_Name VARCHAR(300), Contact_Email VARCHAR(80), Contact_Phone VARCHAR(20), Contact_Mailing_Address VARCHAR(300));', function(err, results) {
-
-            //call `done()` to release the client back to the pool
-            done();
-
-            if(err) {
-                return console.error('error running query', err);
-            }
-
-        });
-
-    });
-}
-
 // get a list of all contacts
 module.exports.getContactList = function(req, res) {
     pool.connect(function(err, client, done) {
@@ -90,7 +72,7 @@ module.exports.updateContact = function(req, res) {
 
         req.body.When = moment(req.body.When).utc().unix();;
 
-        client.query('UPDATE "contacts" SET "contact_name" = $1::text, "contact_email" = $2::text, "contact_phone" = $3::text, "contact_mailing_address" = $4::text WHERE "id" = $5::int RETURNING *', [req.body.contact_name, req.body.contact_email, req.body.contact_phone, req.body.contact_mailing_address, req.body.id], function(err, result) {
+        client.query('UPDATE "contacts" SET "contact_name" = $1::text, "contact_email" = $2::text, "contact_phone" = $3::text, "contact_mailing_address" = $4::text, "activity" = $5::text  WHERE "id" = $6::int RETURNING *', [req.body.contact_name, req.body.contact_email, req.body.contact_phone, req.body.contact_mailing_address, req.body.activity, req.body.id], function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();
@@ -134,7 +116,7 @@ module.exports.addContact = function(req, res) {
             return console.error('error fetching client from pool', err);
         }
 
-        var query = client.query('INSERT INTO "contacts"("contact_name", "contact_email", "contact_phone", "contact_mailing_address") VALUES($1::text, $2::text, $3::text, $4::text) RETURNING *', [req.body.Contact_Name, req.body.Contact_Email, req.body.Contact_Phone, req.body.Contact_Mailing_Address], function(err, result) {
+        var query = client.query('INSERT INTO "contacts"("contact_name", "contact_email", "contact_phone", "contact_mailing_address", "activity") VALUES($1::text, $2::text, $3::text, $4::text, $5::text) RETURNING *', [req.body.contact_name, req.body.contact_email, req.body.contact_phone, req.body.contact_mailing_address, req.body.activity], function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();

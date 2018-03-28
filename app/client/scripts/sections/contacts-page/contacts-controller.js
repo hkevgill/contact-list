@@ -4,13 +4,12 @@ angular.module('contactApp').controller('contacts-controller', function ($scope,
 
     var i;
     var offset;
-    $scope.propertyName = 'Contact_Name';
+    $scope.propertyName = 'contact_name';
     $scope.reverse = true;
 
     // get all contacts on page load
     contactsFactory.getContactsList().then(function(data) {
         $scope.contacts = data.rows;
-        console.log($scope.contacts);
     }, function() {
         console.log('error getting contacts');
     });

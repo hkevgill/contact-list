@@ -22,7 +22,7 @@
                     <div class="form-group row">
                         <label for="contact-email" class="col-xs-3 col-form-label">Contact Email</label>
                         <div class="col-xs-9">
-                            <input class="form-control" type="text" ng-model="contact.contact_email" name="contact-email" required>
+                            <input class="form-control" type="email" ng-model="contact.contact_email" name="contact-email" required>
                         </div>
                     </div>
 
@@ -39,6 +39,14 @@
                         <label for="contact-mailing-address" class="col-xs-3 col-form-label">Contact Mailing Address</label>
                         <div class="col-xs-9">
                             <input class="form-control" type="text" ng-model="contact.contact_mailing_address" id="contact-mailing_address" required>
+                        </div>
+                    </div>
+
+                    <!-- Activity -->
+                    <div class="form-group row">
+                        <label for="activity" class="col-xs-3 col-form-label">Activity</label>
+                        <div class="col-xs-9">
+                            <input class="form-control" type="text" ng-model="contact.activity" id="activity" required>
                         </div>
                     </div>
 

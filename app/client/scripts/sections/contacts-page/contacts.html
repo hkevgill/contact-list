@@ -25,6 +25,10 @@
                     Contact Mailing Address
                     <span class="sortorder" ng-show="propertyName === 'contact_mailing_address'" ng-class="{reverse: reverse}"></span>
                 </th>
+                <th ng-click="sortBy('activity')">
+                    Activity
+                    <span class="sortorder" ng-show="propertyName === 'activity'" ng-class="{reverse: reverse}"></span>
+                </th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +38,7 @@
                     <td>{{ entry.contact_email }}</td>
                     <td>{{ entry.contact_phone }}</td>
                     <td>{{ entry.contact_mailing_address }}</td>
+                    <td>{{ entry.activity }}</td>
                 </tr>
             </tbody>
         </table>

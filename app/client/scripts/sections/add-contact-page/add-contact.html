@@ -13,7 +13,7 @@
                     <div class="form-group row">
                         <label for="contact-name" class="col-xs-3 col-form-label">Contact Name</label>
                         <div class="col-xs-9">
-                            <input class="form-control" placeholder="John Smith" type="text" ng-model="contact.Contact_Name" id="contact-name" required>
+                            <input class="form-control" placeholder="John Smith" type="text" ng-model="contact.contact_name" id="contact-name" required>
                         </div>
                     </div>
 
@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="contact-email" class="col-xs-3 col-form-label">Contact Email</label>
                         <div class="col-xs-9">
-                            <input class="form-control" placeholder="example@email.com" type="text" ng-model="contact.Contact_Email" id="contact-email" required>
+                            <input class="form-control" placeholder="example@email.com" type="email" ng-model="contact.contact_email" id="contact-email" required>
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                     <div class="form-group row">
                         <label for="contact-phone" class="col-xs-3 col-form-label">Contact Phone</label>
                         <div class="col-xs-9">
-                            <input class="form-control" placeholder="250-512-9983" type="text" ng-model="contact.Contact_Phone" ng-pattern="phonePattern" id="contact-phone" required>
+                            <input class="form-control" placeholder="250-512-9983" type="text" ng-model="contact.contact_phone" ng-pattern="phonePattern" id="contact-phone" required>
                         </div>
                     </div>
 
@@ -37,7 +37,15 @@
                     <div class="form-group row">
                         <label for="contact-mailing-address" class="col-xs-3 col-form-label">Contact Mailing Address</label>
                         <div class="col-xs-9">
-                            <input class="form-control" placeholder="123 cook street" type="text" ng-model="contact.Contact_Mailing_Address" id="contact-mailing-address" required>
+                            <input class="form-control" placeholder="123 cook street" type="text" ng-model="contact.contact_mailing_address" id="contact-mailing-address" required>
+                        </div>
+                    </div>
+
+                    <!-- Activity -->
+                    <div class="form-group row">
+                        <label for="contact-activity" class="col-xs-3 col-form-label">Activity</label>
+                        <div class="col-xs-9">
+                            <input class="form-control" placeholder="Yoga" type="text" ng-model="contact.activity" id="contact-activity" required>
                         </div>
                     </div>
 
