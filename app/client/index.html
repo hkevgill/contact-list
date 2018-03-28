@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactApp">
+    <head>
+        <meta charset="UTF-8">
+        <base href="/">
+        <title>Contact List</title>
+
+        <!-- CSS -->
+        <!-- load bootstrap and our stylesheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.css" rel="stylesheet">
+        <link href="styles/common.css" rel="stylesheet" type="text/css" />
+        <link href="styles/contacts.css" rel="stylesheet" type="text/css" />
+        <link href="styles/edit-contact.css" rel="stylesheet" type="text/css" />
+        <link href="styles/add-contact.css" rel="stylesheet" type="text/css" />
+
+        <!-- JS -->
+        <!-- load angular and our custom application -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+        <script src="//cdn.rawgit.com/indrimuska/angular-moment-picker/master/dist/angular-moment-picker.min.js"></script>
+        <script src="scripts/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="scripts/sections/contacts-page/contacts-controller.js"></script>
+        <script src="scripts/sections/edit-contact-page/edit-contact-controller.js"></script>
+        <script src="scripts/sections/add-contact-page/add-contact-controller.js"></script>
+
+        <!-- Services -->
+        <script src="scripts/shared/services/utils.js"></script>
+        <script src="scripts/shared/services/contacts-factory.js"></script>
+
+    </head>
+
+    <body class="container" ui-view>
+
+    </body>
+</html>
