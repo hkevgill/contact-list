@@ -1,0 +1,13 @@
+.edit-contact-page .back-arrow {
+    font-size: 30px;
+    color: #551A8B;
+}
+
+.edit-contact-page .back-arrow:hover {
+    cursor: pointer;
+    color: #961B9B;
+}
+
+.edit-contact-page .delete-button {
+    margin-top: 20px;
+}

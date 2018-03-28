@@ -1,0 +1,7 @@
+.contacts-page td {
+    height: 50px;
+}
+
+.contacts-page th {
+    cursor: pointer;
+}

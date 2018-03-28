@@ -41,7 +41,7 @@ module.exports.getContactList = function(req, res) {
             return console.error('error fetching client from pool', err);
         }
 
-        client.query('SELECT * FROM "Contacts"', function(err, result) {
+        client.query('SELECT * FROM "contacts"', function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();
@@ -65,7 +65,7 @@ module.exports.getContact = function(req, res) {
             return console.error('error fetching client from pool', err);
         }
 
-        client.query('SELECT * FROM "Contacts" e WHERE "ID" = $1::int', [req.params.contactId], function(err, result) {
+        client.query('SELECT * FROM "contacts" e WHERE "id" = $1::int', [req.params.contactId], function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();
@@ -90,7 +90,7 @@ module.exports.updateContact = function(req, res) {
 
         req.body.When = moment(req.body.When).utc().unix();;
 
-        client.query('UPDATE "Contacts" SET "Contact_Name" = $1::text, "Contact_Email" = $2::text, "Contact_Phone" = $3::text, "Contact_Mailing_Address" = $4::text WHERE "ID" = $5::int RETURNING *', [req.body.Contact_Name, req.body.Contact_Email, req.body.Contact_Phone, req.body.Contact_Mailing_Address, req.body.ID], function(err, result) {
+        client.query('UPDATE "contacts" SET "contact_name" = $1::text, "contact_email" = $2::text, "contact_phone" = $3::text, "contact_mailing_address" = $4::text WHERE "id" = $5::int RETURNING *', [req.body.contact_name, req.body.contact_email, req.body.contact_phone, req.body.contact_mailing_address, req.body.id], function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();
@@ -112,7 +112,7 @@ module.exports.deleteContact = function(req, res) {
             return console.error('error fetching client from pool', err);
         }
 
-        client.query('DELETE FROM "Contacts" WHERE "ID" = $1::int', [req.params.contactId], function(err, result) {
+        client.query('DELETE FROM "contacts" WHERE "id" = $1::int', [req.params.contactId], function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();
@@ -134,7 +134,7 @@ module.exports.addContact = function(req, res) {
             return console.error('error fetching client from pool', err);
         }
 
-        var query = client.query('INSERT INTO "Contacts"("Contact_Name", "Contact_Email", "Contact_Phone", "Contact_Mailing_Address") VALUES($1::text, $2::text, $3::text, $4::text) RETURNING *', [req.body.Contact_Name, req.body.Contact_Email, req.body.Contact_Phone, req.body.Contact_Mailing_Address], function(err, result) {
+        var query = client.query('INSERT INTO "contacts"("contact_name", "contact_email", "contact_phone", "contact_mailing_address") VALUES($1::text, $2::text, $3::text, $4::text) RETURNING *', [req.body.Contact_Name, req.body.Contact_Email, req.body.Contact_Phone, req.body.Contact_Mailing_Address], function(err, result) {
 
             //call `done()` to release the client back to the pool
             done();

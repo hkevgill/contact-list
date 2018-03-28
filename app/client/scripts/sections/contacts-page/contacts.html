@@ -1,3 +1,48 @@
 <div class="contacts-page">
 
+    <div class="heading">
+        <h3>Contacts List</h3>
+    </div>
+
+    <div class="data-table">
+        <table class="table">
+            <thead>
+                <tr>
+                <th></th>
+                <th ng-click="sortBy('contact_name')">
+                    Contact Name
+                    <span class="sortorder" ng-show="propertyName === 'contact_name'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th ng-click="sortBy('contact_email')">
+                    Contact Email
+                    <span class="sortorder" ng-show="propertyName === 'contact_email'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th ng-click="sortBy('contact_phone')">
+                    Contact Phone
+                    <span class="sortorder" ng-show="propertyName === 'contact_phone'" ng-class="{reverse: reverse}"></span>
+                </th>
+                <th ng-click="sortBy('contact_mailing_address')">
+                    Contact Mailing Address
+                    <span class="sortorder" ng-show="propertyName === 'contact_mailing_address'" ng-class="{reverse: reverse}"></span>
+                </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in contacts | orderBy:propertyName:reverse track by $index">
+                    <td><a ui-sref="edit({ contactId: entry.ID })">Edit</a></td>
+                    <td>{{ entry.contact_name }}</td>
+                    <td>{{ entry.contact_email }}</td>
+                    <td>{{ entry.contact_phone }}</td>
+                    <td>{{ entry.contact_mailing_address }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="add-new">
+        <button type="button" class="btn btn-primary" ui-sref="add">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+        </button>
+    </div>
+
 </div>
