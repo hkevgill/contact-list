@@ -33,7 +33,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="entry in contacts | orderBy:propertyName:reverse track by $index">
-                    <td><a ui-sref="edit({ contactId: entry.ID })">Edit</a></td>
+                    <td><a ui-sref="edit({ contactId: entry.id })">Edit</a></td>
                     <td>{{ entry.contact_name }}</td>
                     <td>{{ entry.contact_email }}</td>
                     <td>{{ entry.contact_phone }}</td>
